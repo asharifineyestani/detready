@@ -16,3 +16,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Dev Routes
+|--------------------------------------------------------------------------
+|
+*/
+
+Route::group([
+    'prefix' => 'dev',
+    'middleware' => ['web']
+], function ($router) {
+    require base_path('routes/dev.php');
+});
